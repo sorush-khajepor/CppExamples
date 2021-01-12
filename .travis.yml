@@ -4,7 +4,9 @@ compiler: gcc
 os: linux
 sudo: true
 env:
-        - BUILD_TYPE=Debug
+    - BUILD_TYPE=Debug
+
+# default gcc for Ubuntu Focal is v9, upgraded to v10 here
 addons:
         apt:
               sources:

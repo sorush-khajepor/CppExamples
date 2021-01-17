@@ -1,5 +1,2 @@
-mkdir -p build
-cd build
-cmake ..
-make
-./hello
+cd basic/example001
+./build.sh

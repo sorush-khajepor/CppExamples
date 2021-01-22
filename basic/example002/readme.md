@@ -1,0 +1,1 @@
+Having `auto` function in header file, see [this post](https://iamsorush.com/posts/auto-cpp/) for details.

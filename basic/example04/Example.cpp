@@ -26,12 +26,23 @@ struct TypeDecider<double>
 };
 // end of metafunction
 
+// Define a function that does the same job
+template<class T>
+auto constexpr GetOutType(){
+    if constexpr (is_same<T, int>::value)
+        return string{};
+    else if (is_same<T, double>::value)
+        return char{};
+
+}
+
 // A class example created using meta function TypeDecider
 template <class T>
 class App
 {
 public:
     typename TypeDecider<T>::outType m;
+    decltype(GetOutType<T>()) n;
 };
 
 // A function example using the metafunction, TypeDecider.
@@ -53,8 +64,8 @@ void f(vector<T> v)
 
 int main()
 {
-    App<double> app1; // has member => char m
-    App<int> app2; // has member => string m
+    App<double> app1; // has member => char m, char n
+    App<int> app2; // has member => string m, string n
 
     vector<int> v1; // has local variable => string x
     f(v1);

@@ -29,9 +29,9 @@ struct TypeDecider<double>
 // Define a function that does the same job
 template<class T>
 auto constexpr GetOutType(){
-    if constexpr (is_same<T, int>::value)
+    if constexpr (is_same_v<T, int>)
         return string{};
-    else if (is_same<T, double>::value)
+    else if (is_same_v<T, double>)
         return char{};
 
 }
@@ -58,7 +58,7 @@ void f(vector<T> v)
     // so if a condition is not met, the
     // subsequent lines won't be in the 
     // compiled program.
-    if constexpr (is_same<T, int>::value)
+    if constexpr (is_same_v<T, int>)
         cout << "type is int\n";
 }
 
